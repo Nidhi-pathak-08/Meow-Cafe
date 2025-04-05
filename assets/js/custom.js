@@ -2,6 +2,17 @@
 	
 	"use strict";
 
+	document.addEventListener('click', function () {
+		const meow = document.getElementById('meowSound');
+		if (meow) {
+		  meow.currentTime = 0; // rewind if already playing
+		  meow.play().catch((e) => {
+			// Handle autoplay restriction
+			console.log("Can't play sound without interaction:", e);
+		  });
+		}
+	  });
+
 	$(window).scroll(function() {
 	  var scroll = $(window).scrollTop();
 	  var box = $('.header-text').height();
